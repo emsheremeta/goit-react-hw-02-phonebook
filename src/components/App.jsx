@@ -2,8 +2,8 @@ import React from 'react';
 import ContactFilter from './ContactFilter';
 import Form from './Form';
 import { nanoid } from 'nanoid';
-import './Phonebook.css';
 import ContactList from './ContactList';
+import styles from './Phonebook.module.css';
 
 export default class App extends React.Component {
   state = {
@@ -53,11 +53,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="Phonebook__text">Phonebook</h1>
+        <h1 className={styles.text}>Phonebook</h1>
 
         <Form onSubmit={this.onSubmit}></Form>
 
-        <h2 className="Phonebook__text__contacts">Contacts</h2>
+        <h2 className={styles.contactsText}>Contacts</h2>
 
         <ContactFilter
           filter={this.state.filter}
