@@ -44,11 +44,16 @@ export default class App extends React.Component {
     }
   };
 
-  onDelete = event => {
-    const id = event.target.parentElement.id;
+  onDelete = id => {
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
+  };
+
+  getFilteredContacts = () => {
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
+    );
   };
   render() {
     return (
@@ -64,8 +69,7 @@ export default class App extends React.Component {
           onChange={this.onChange}
         ></ContactFilter>
         <ContactList
-          contacts={this.state.contacts}
-          filter={this.state.filter}
+          contacts={this.getFilteredContacts()}
           onDelete={this.onDelete}
         ></ContactList>
       </div>

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './Phonebook.module.css';
 
 class Form extends React.Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',
@@ -69,7 +73,3 @@ class Form extends React.Component {
 }
 
 export default Form;
-
-Form.prototypes = {
-  filter: PropTypes.string,
-};
