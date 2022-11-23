@@ -2,26 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Phonebook.module.css';
 
-class Contact extends React.Component {
-  onDelete = event => {
-    const id = event.target.parentElement.id;
-    this.props.onDelete(id);
-  };
-  render() {
-    const { id, name, number } = this.props.contact;
+export default function Contact({ contact, deleteContact }) {
+  const { id, name, number } = contact;
 
-    return (
-      <li className={styles.contactList} id={id}>
-        {name}: {number}
-        <button className={styles.buttonContact} onClick={this.onDelete}>
-          Delete
-        </button>
-      </li>
-    );
-  }
+  return (
+    <li className={styles.contactList} id={id}>
+      {name}: {number}
+      <button className={styles.buttonContact} onClick={deleteContact}>
+        Delete
+      </button>
+    </li>
+  );
 }
-
-export default Contact;
 
 Contact.prototypes = {
   id: PropTypes.string.isRequired,

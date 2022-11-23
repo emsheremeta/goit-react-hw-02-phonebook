@@ -18,8 +18,10 @@ class Form extends React.Component {
       alert('Please, add the name! ');
       return;
     }
-    this.props.onSubmit(this.state);
-    this.reset();
+    const result = this.props.onSubmit(this.state);
+    if (result) {
+      this.reset();
+    }
   };
 
   onChange = event => {

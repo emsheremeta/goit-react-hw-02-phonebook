@@ -39,12 +39,15 @@ export default class App extends React.Component {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, contact],
       }));
+      return true;
     } else {
       alert('This contact already exist');
+      return false;
     }
   };
 
-  onDelete = id => {
+  onDelete = event => {
+    const id = event.target.parentElement.id;
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });

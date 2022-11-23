@@ -10,7 +10,7 @@ export default function ContactList({ contacts, onDelete }) {
           <Contact
             key={contact.id}
             contact={contact}
-            onDelete={onDelete}
+            deleteContact={onDelete}
           ></Contact>
         );
       })}
