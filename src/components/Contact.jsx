@@ -8,7 +8,10 @@ export default function Contact({ contact, deleteContact }) {
   return (
     <li className={styles.contactList} id={id}>
       {name}: {number}
-      <button className={styles.buttonContact} onClick={deleteContact}>
+      <button
+        className={styles.buttonContact}
+        onClick={() => deleteContact(id)}
+      >
         Delete
       </button>
     </li>

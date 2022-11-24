@@ -46,8 +46,8 @@ export default class App extends React.Component {
     }
   };
 
-  onDelete = event => {
-    const id = event.target.parentElement.id;
+  onDelete = id => {
+    // const id = event.target.parentElement.id;
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
